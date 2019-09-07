@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { generateGreetings } from './constants';
 
 const Greetings: React.FC = () => {
   const [userName, setUserName] = useState('React');
+  const [greetings, setGreetings] = useState(generateGreetings());
+  const changeGreetings = (): void => {
+    setGreetings(generateGreetings());
+  };
   return (
     <div>
       <h2>Greetings</h2>
@@ -17,8 +22,10 @@ const Greetings: React.FC = () => {
             onChange={event => setUserName(event.target.value)}
           />
         </label>
-        <input type="button" value="입력" />
-        <div>Nice to meet you, {userName}!</div>
+        <input type="button" value="입력" onClick={changeGreetings} />
+        <div data-testid="greetings">
+          {greetings}, {userName}!
+        </div>
       </div>
     </div>
   );
