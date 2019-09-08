@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import Greetings from './Greetings';
+import WordCounter from './WordCounter';
 
 const App: React.FC = () => {
   return (
@@ -15,12 +16,16 @@ const App: React.FC = () => {
             <li>
               <Link to="/greetings">인사하기</Link>
             </li>
+            <li>
+              <Link to="/word-counter">글자 수 세기</Link>
+            </li>
           </ul>
 
           <hr />
 
           <Route exact path="/" component={Home} />
           <Route path="/greetings" component={Greetings} />
+          <Route path="/word-counter" component={WordCounter} />
         </div>
       </Router>
     </div>
