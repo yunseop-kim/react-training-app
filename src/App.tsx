@@ -4,6 +4,7 @@ import './App.css';
 import Greetings from './Greetings';
 import WordCounter from './WordCounter';
 import PrintDoubleQuote from './PrintDoubleQuote';
+import SimpleMath from './SimpleMath';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,9 @@ const App: React.FC = () => {
             <li>
               <Link to="/print-doublequote">따옴표 출력</Link>
             </li>
+            <li>
+              <Link to="/math">간단한 수학</Link>
+            </li>
           </ul>
 
           <hr />
@@ -31,6 +35,7 @@ const App: React.FC = () => {
           <Route path="/greetings" component={Greetings} />
           <Route path="/word-counter" component={WordCounter} />
           <Route path="/print-doublequote" component={PrintDoubleQuote} />
+          <Route path="/math" component={SimpleMath} />
         </div>
       </Router>
     </div>
