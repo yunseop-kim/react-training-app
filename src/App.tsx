@@ -5,6 +5,7 @@ import Greetings from './Greetings';
 import WordCounter from './WordCounter';
 import PrintDoubleQuote from './PrintDoubleQuote';
 import SimpleMath from './SimpleMath';
+import RetireCaculator from './RetireCaculator';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,9 @@ const App: React.FC = () => {
             <li>
               <Link to="/math">간단한 수학</Link>
             </li>
+            <li>
+              <Link to="/retire-calculator">퇴직 계산기</Link>
+            </li>
           </ul>
 
           <hr />
@@ -36,6 +40,7 @@ const App: React.FC = () => {
           <Route path="/word-counter" component={WordCounter} />
           <Route path="/print-doublequote" component={PrintDoubleQuote} />
           <Route path="/math" component={SimpleMath} />
+          <Route path="/retire-calculator" component={RetireCaculator} />
         </div>
       </Router>
     </div>
