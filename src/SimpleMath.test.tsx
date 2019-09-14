@@ -4,8 +4,12 @@ import SimpleMath from './SimpleMath';
 
 const componentGetter = () => {
   const utils: RenderResult = render(<SimpleMath />);
-  const first: HTMLElement = utils.getByTestId('first-number');
-  const second: HTMLElement = utils.getByTestId('second-number');
+  const first: HTMLInputElement = utils.getByTestId(
+    'first-number'
+  ) as HTMLInputElement;
+  const second: HTMLInputElement = utils.getByTestId(
+    'second-number'
+  ) as HTMLInputElement;
   const addResult: HTMLElement = utils.getByTestId('add-result');
   const subResult: HTMLElement = utils.getByTestId('sub-result');
   const mulResult: HTMLElement = utils.getByTestId('mul-result');
@@ -24,16 +28,16 @@ const componentGetter = () => {
 describe('<SimpleMath />', () => {
   it('has two number input elements.', () => {
     const { first, second } = componentGetter();
-    expect(first.textContent).toBe('');
-    expect(second.textContent).toBe('');
+    expect(Number(first.value)).toBe(0);
+    expect(Number(second.value)).toBe(0);
   });
 
   it('print out Arithmetic results', () => {
     const { addResult, subResult, mulResult, divResult } = componentGetter();
-    expect(addResult.textContent).toBe('');
-    expect(subResult.textContent).toBe('');
-    expect(mulResult.textContent).toBe('');
-    expect(divResult.textContent).toBe('');
+    expect(Number(addResult.textContent)).toBe(0);
+    expect(Number(subResult.textContent)).toBe(0);
+    expect(Number(mulResult.textContent)).toBe(0);
+    expect(Number(divResult.textContent)).toBe(0);
   });
 
   it('문자열로 입력 받도록 할 것.', () => {
@@ -72,10 +76,10 @@ describe('<SimpleMath />', () => {
         value: 'invalid input 2'
       }
     });
-    expect(addResult.textContent).toBe('');
-    expect(subResult.textContent).toBe('');
-    expect(mulResult.textContent).toBe('');
-    expect(divResult.textContent).toBe('');
+    expect(Number(addResult.textContent)).toBe(0);
+    expect(Number(subResult.textContent)).toBe(0);
+    expect(Number(mulResult.textContent)).toBe(0);
+    expect(Number(divResult.textContent)).toBe(0);
   });
 
   it('음수를 넣을 수 없도록 하라.', () => {
@@ -97,9 +101,9 @@ describe('<SimpleMath />', () => {
         value: -15
       }
     });
-    expect(addResult.textContent).toBe('');
-    expect(subResult.textContent).toBe('');
-    expect(mulResult.textContent).toBe('');
-    expect(divResult.textContent).toBe('');
+    expect(Number(addResult.textContent)).toBe(0);
+    expect(Number(subResult.textContent)).toBe(0);
+    expect(Number(mulResult.textContent)).toBe(0);
+    expect(Number(divResult.textContent)).toBe(0);
   });
 });

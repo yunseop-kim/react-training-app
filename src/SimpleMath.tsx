@@ -2,39 +2,36 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 const SimpleMath: React.FC = () => {
   const [addResult, setAddResult]: [
-    number | any,
-    Dispatch<SetStateAction<number | any>>
-  ] = useState('');
+    number,
+    Dispatch<SetStateAction<number>>
+  ] = useState(0);
   const [subResult, setSubResult]: [
-    number | any,
-    Dispatch<SetStateAction<number | any>>
-  ] = useState('');
+    number,
+    Dispatch<SetStateAction<number>>
+  ] = useState(0);
   const [mulResult, setMulResult]: [
-    number | any,
-    Dispatch<SetStateAction<number | any>>
-  ] = useState('');
+    number,
+    Dispatch<SetStateAction<number>>
+  ] = useState(0);
   const [divResult, setDivResult]: [
-    number | any,
-    Dispatch<SetStateAction<number | any>>
-  ] = useState('');
+    number,
+    Dispatch<SetStateAction<number>>
+  ] = useState(0);
   const [firstNumber, setFirstNumber]: [
-    number | any,
-    Dispatch<SetStateAction<number | any>>
-  ] = useState('');
+    number,
+    Dispatch<SetStateAction<number>>
+  ] = useState(0);
   const [secondNumber, setSecondNumber]: [
-    number | any,
-    Dispatch<SetStateAction<number | any>>
-  ] = useState('');
+    number,
+    Dispatch<SetStateAction<number>>
+  ] = useState(0);
 
   useEffect(() => {
-    const first: number = Number(firstNumber);
-    const second: number = Number(secondNumber);
-
-    if (first && second && first > 0 && second > 0) {
-      setAddResult(add(first, second));
-      setSubResult(sub(first, second));
-      setMulResult(mul(first, second));
-      setDivResult(div(first, second));
+    if (firstNumber && secondNumber && firstNumber > 0 && secondNumber > 0) {
+      setAddResult(add(firstNumber, secondNumber));
+      setSubResult(sub(firstNumber, secondNumber));
+      setMulResult(mul(firstNumber, secondNumber));
+      setDivResult(div(firstNumber, secondNumber));
     }
   });
 
@@ -51,7 +48,7 @@ const SimpleMath: React.FC = () => {
         value={firstNumber}
         min="0"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setFirstNumber(e.target.value)
+          setFirstNumber(Number(e.target.value))
         }
       />
       <input
@@ -60,7 +57,7 @@ const SimpleMath: React.FC = () => {
         value={secondNumber}
         min="0"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setSecondNumber(e.target.value)
+          setSecondNumber(Number(e.target.value))
         }
       />
       <h5 data-testid="add-result">{addResult}</h5>
